@@ -2,11 +2,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
+from pathlib import Path
 
 sns.set(style="darkgrid")
 
 # Load cleaned dataset
-air_quality_df = pd.read_csv("main_data.csv")
+DATA_PATH = Path(__file__).parent / "main_data.csv"
+air_quality_df = pd.read_csv(DATA_PATH)
 
 # Mengubah kolom datetime ke tipe datetime
 air_quality_df["datetime"] = pd.to_datetime(air_quality_df["datetime"])
